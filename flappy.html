@@ -35,8 +35,8 @@
 <button id="restart">Restart</button>
 
 <!-- Sounds -->
-<audio id="flap" src="boom.mp3"></audio>
-<audio id="hit" src="boom.mp3"></audio>
+<audio id="flap" src="boom_t1YLQPja.mp3"></audio>
+<audio id="hit" src="Game Over 7.mp3"></audio>
 
 <script>
 const canvas = document.getElementById("game");
@@ -99,7 +99,7 @@ function update() {
     }
   });
 
-  pipes = pipes.filter(p => p.x > -20);
+  pipes = pipes.filter(p => p.x > -40);
 }
 
 function draw() {
