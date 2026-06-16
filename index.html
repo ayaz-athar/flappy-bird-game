@@ -35,8 +35,8 @@
 <button id="restart">Restart</button>
 
 <!-- Sounds -->
-<audio id="flap" src="boom_t1YLQPja.mp3"></audio>
-<audio id="hit" src="Game Over 7.mp3"></audio>
+<audio id="flap" src="boom.mp3" preload="auto"></audio>
+<audio id="hit" src="boom.mp3" preload="auto"></audio>
 
 <script>
 const canvas = document.getElementById("game");
@@ -63,7 +63,7 @@ const gap = 120;
 function jump() {
   if (gameOver) return;
   bird.v = -2;
-  document.getElementById("flap").play();
+  playSound("flap");
 }
 
 document.addEventListener("keydown", e => {
@@ -126,9 +126,15 @@ function draw() {
 function endGame() {
   if (!gameOver) {
     gameOver = true;
-    document.getElementById("hit").play();
+    playSound("hit");
     restartBtn.style.display = "block";
   }
+}
+
+function playSound(id) {
+  const sound = document.getElementById(id);
+  sound.currentTime = 0;
+  sound.play().catch(() => {});
 }
 
 function loop() {
